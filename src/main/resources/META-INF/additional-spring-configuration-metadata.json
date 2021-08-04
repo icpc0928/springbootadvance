@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.datasource.driver-class-name.url.username",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.driver-class-name.url.username."
+    },
+    {
+      "name": "file.name",
+      "type": "java.lang.String",
+      "description": "Description for file.name."
+    }
+  ] }
