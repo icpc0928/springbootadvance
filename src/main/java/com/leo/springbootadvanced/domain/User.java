@@ -15,7 +15,7 @@ public class User {
 
     private String userName;
     private String password;
-    private int phone;
+    private String phone;
     private String email;
 
     public User() {
@@ -46,11 +46,11 @@ public class User {
         this.password = password;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
