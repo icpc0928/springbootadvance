@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>書單詳情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body th:object="${book}">
+
+    <div class="container" style="max-width: 600px; margin-top: 50px">
+
+        <div class="card card-body bg-light">
+            <p><strong>書名: </strong><span th:text="*{name}"></span></p>
+            <p><strong>作者: </strong><span th:text="*{author}"></span></p>
+            <p><strong>描述: </strong><span th:text="*{description}"></span></p>
+            <p><strong>isbn: </strong><span th:text="*{isbn}"></span></p>
+            <p><strong>狀態: </strong><span th:text="*{status}"></span></p>
+        </div>
+
+    </div>
+
+
+    <script src="../static/js/jquery-3.6.0.js" th:src="@{/js/jquery-3.6.0.js}"></script>
+    <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
