@@ -11,7 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -22,6 +24,12 @@ public class LoginController {
     @Autowired
     private UserRepository userRepository;
 
+    //根目錄自動跳轉到index葉面
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
+
     @GetMapping("/register")
     public String registerPage(Model model){
         model.addAttribute("userForm", new UserForm()); //讓前端能夠接到 th:object=${"userForm"}
@@ -30,6 +38,24 @@ public class LoginController {
 
     @GetMapping("/login")
     public String loginPage(){
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String loginPost(@RequestParam String userName,
+                            @RequestParam String password,
+                            HttpSession session){
+        User user = userRepository.findByUserNameAndPassword(userName, password);
+        if(user != null){
+            session.setAttribute("user", user);
+            return "index";
+        }
+        return "login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("user");
         return "login";
     }
 
